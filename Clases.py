@@ -29,7 +29,7 @@ class Cliente(System_P):
     def reservas_equipos(self, hora, tipo):
         return f"Reserva realizada a las {hora}"
         
-    def servivios(self, hora, tipo):
+    def servicios(self, hora, tipo):
         return f"Servicio solicitado: {tipo}" 
     
         
