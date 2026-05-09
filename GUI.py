@@ -15,7 +15,7 @@ class AplicacionSJF(tk.Tk):
         self.notebook = ttk.Notebook(self)
         self.notebook.pack(pady=10, expand=True, fill="both")
 
-        # Pestañas (sin Reservas)
+        # Pestañas 
         self.tab_clientes = ttk.Frame(self.notebook)
         self.tab_servicios = ttk.Frame(self.notebook)
 
@@ -51,7 +51,7 @@ class AplicacionSJF(tk.Tk):
         self.combo_servicio.grid(row=2, column=1, padx=5, pady=5)
         self.combo_servicio.bind("<<ComboboxSelected>>", self.actualizar_label_valor)
 
-        # Valor del servicio (cambia según el tipo)
+        # Valor del servicio 
         self.lbl_valor = ttk.Label(frame_form, text="Valor:")
         self.lbl_valor.grid(row=3, column=0, padx=5, pady=5)
         self.ent_valor = ttk.Entry(frame_form)
@@ -121,7 +121,7 @@ class AplicacionSJF(tk.Tk):
         self.combo_clientes.grid(row=0, column=1, padx=5, pady=5)
         self.combo_clientes.bind("<<ComboboxSelected>>", self.al_seleccionar_cliente)
 
-        # Frame dinámico para el parámetro según servicio
+        # parámetro dinamico segun el tipo de servicio
         self.frame_calculo = ttk.LabelFrame(self.tab_servicios, text="Parámetro de cálculo")
         self.frame_calculo.pack(pady=10, padx=10, fill="x")
 
