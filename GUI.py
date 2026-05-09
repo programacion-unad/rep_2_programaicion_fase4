@@ -105,7 +105,7 @@ class AplicacionSJF(tk.Tk):
         try:
             tarifa = float(self.ent_tarifaKm.get())
             distancia = float(self.ent_distancia.get())
-            total = tarifa * distancia [cite: 2]
+            total = tarifa * distancia 
             messagebox.showinfo("Costo Transporte", f"El costo total es: ${total}")
         except ValueError:
             messagebox.showerror("Error", "Ingrese valores numéricos válidos para transporte.")
@@ -114,7 +114,7 @@ class AplicacionSJF(tk.Tk):
         try:
             precio = float(self.ent_precioPersona.get())
             personas = int(self.ent_cantidadPersonas.get())
-            total = precio * personas [cite: 2]
+            total = precio * personas 
             messagebox.showinfo("Costo Tour", f"El costo total es: ${total}")
         except ValueError:
             messagebox.showerror("Error", "Ingrese valores numéricos válidos para el tour.")
