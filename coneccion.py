@@ -1,51 +1,43 @@
-from Clases import Cliente, Hotel, Transporte
+from Clases import Cliente, Hotel, Transporte, Tour
 
-# =========================
-# PRUEBAS DEL SISTEMA
-# =========================
-
-#En un equipo conformado por cinco (5) estudiantes, deberán desarrollar
-#un sistema integral orientado a objetos, sin uso de bases de datos,
-#capaz de gestionar clientes, servicios y reservas para una empresa
-#llamada Software FJ que ofrece varios tipos de servicios (reservas de
-#salas, alquiler de equipos y asesorías especializadas). El objetivo de esta
-#tarea es construir una aplicación estable, modular y extensible que
-#implemente de forma rigurosa los principios de abstracción, herencia,
-#polimorfismo, encapsulación y manejo avanzado de excepciones,
-#garantizando que el sistema siga funcionando aun cuando se presenten
-#errores durante su ejecución.
-
-#=============================================
-#       seccion para conectar con GUI 
-#=============================================
+# =============================================
+#       Conexión entre lógica y GUI 
+# =============================================
 
 class funciones_clientes:
-    
-    def guadar_dt(self, d_Nombre: str, d_correo: str):
-        obj_cliente = Cliente(d_Nombre, d_correo)
-    
-    
-    
-    
-        
-        
-    
-    
-        
-        
-    
-        
-    
-    
-    
-    
-    
-    
-       
-        
-    
-        
-        
-        
 
+    def __init__(self):
+        self.lista_clientes = []  # lista donde se guardan todos los clientes
 
+    def guardar_cliente(self, nombre: str, correo: str, tipo_servicio: str, valor: float):
+        """Crea un cliente con su servicio asignado y lo agrega a la lista."""
+        try:
+            if not nombre or not correo:
+                raise ValueError("Nombre y correo son obligatorios.")
+            if valor <= 0:
+                raise ValueError("El valor del servicio debe ser mayor a 0.")
+
+            if tipo_servicio == "Hotel":
+                servicio = Hotel(valor)
+            elif tipo_servicio == "Transporte":
+                servicio = Transporte(valor)
+            elif tipo_servicio == "Tour":
+                servicio = Tour(valor)
+            else:
+                raise ValueError(f"Tipo de servicio no reconocido: {tipo_servicio}")
+
+            cliente = Cliente(nombre, correo, servicio)
+            self.lista_clientes.append(cliente)
+            return cliente
+
+        except ValueError as e:
+            raise e
+
+    def get_clientes(self):
+        return self.lista_clientes
+
+    def get_cliente_por_indice(self, indice: int):
+        try:
+            return self.lista_clientes[indice]
+        except IndexError:
+            raise IndexError("No existe un cliente con ese índice.")
