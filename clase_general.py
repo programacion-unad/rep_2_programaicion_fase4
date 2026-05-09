@@ -8,6 +8,6 @@ class System_P(ABC):
     @abstractmethod
     def servicios(self, hora, tipo: str):
         pass
-    
+
     
 
